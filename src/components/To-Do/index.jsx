@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 
-export const ToDoContainer = ({ addItem, listTodo: list }) => {
+export const ToDoContainer = ({ addItem, list }) => {
 	const [showDiv, setShowDiv] = useState(false);
 
 	const handlerCard = () => {

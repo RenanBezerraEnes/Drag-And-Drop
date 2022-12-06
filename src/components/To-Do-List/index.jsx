@@ -10,10 +10,17 @@ export const ToDoList = () => {
 		{ id: '2' },
 		{ id: '3' },
 	]);
-	const [listProgress, setListProgress] = useState([]);
+	const [listProgress, setListProgress] = useState([
+		{ id: '4' },
+		{ id: '5' },
+		{ id: '6' },
+	]);
 
-	const [listDone, setListDone] = useState([]);
-	() => {};
+	const [listDone, setListDone] = useState([
+		{ id: '5' },
+		{ id: '6' },
+		{ id: '7' },
+	]);
 
 	function generateId() {
 		const listLength = [listProgress.length, listDone.length, listTodo.length];
@@ -46,19 +53,9 @@ export const ToDoList = () => {
 				</S.ToDoCard>
 			</S.HeaderContainer>
 			<S.ToDoListContainer>
-				<ToDoContainer
-					listTodo={listTodo}
-					listProgress={listProgress}
-					listDone={listDone}
-					addItem={setListTodo}
-				/>
+				<ToDoContainer list={listTodo} addItem={setListTodo} />
 				<InProgress list={listProgress} addItem={setListProgress} />
-				<Done
-					listTodo={listTodo}
-					listProgress={listProgress}
-					listDone={listDone}
-					addItem={setListDone}
-				/>
+				<Done list={listDone} addItem={setListDone} />
 			</S.ToDoListContainer>
 		</S.Container>
 	);

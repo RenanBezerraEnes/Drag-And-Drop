@@ -11,6 +11,7 @@ export const InProgress = ({ addItem, list }) => {
 			setShowDiv(true);
 		}
 	};
+
 	function drop(ev) {
 		ev.preventDefault();
 		const data = ev.dataTransfer.getData('text');
@@ -25,25 +26,6 @@ export const InProgress = ({ addItem, list }) => {
 		ev.dataTransfer.setData('text', ev.target.id);
 	}
 
-	function dropNewItem(ev) {
-		ev.preventDefault();
-		const id = ev.dataTransfer.getData('NewItemId');
-
-		if (ev.target.id === '1' || ev.target.id === '2' || ev.target.id === '3') {
-		} else {
-			addItem([...list, { id: id }]);
-		}
-	}
-
-	function dropping(ev) {
-		const id = ev.dataTransfer.getData('Id');
-		if (id === 'btn') {
-			dropNewItem(ev);
-		} else {
-			drop(ev);
-		}
-	}
-
 	return (
 		<S.Container>
 			<S.TitleContainer>
@@ -56,10 +38,8 @@ export const InProgress = ({ addItem, list }) => {
 			</S.TitleContainer>
 			<S.TasksContainer>
 				<S.SubContainerTasks
-					id="125"
-					onDrop={(e) => {
-						dropping(e);
-					}}
+					id="129"
+					onDrop={(e) => drop(e)}
 					onDragOver={(e) => e.preventDefault()}
 				>
 					{!showDiv ? (
